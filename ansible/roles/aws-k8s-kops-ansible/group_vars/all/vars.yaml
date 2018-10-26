@@ -1,0 +1,38 @@
+---
+cluster_name: kube.mmnix.pp.ua
+state_store: s3://kops-mmnix
+
+# Remote access
+ssh_public_key: ~/.ssh/id_rsa.pub
+
+# Regions / Availability zones
+aws_region: eu-west-1
+aws_zones: eu-west-1a,eu-west-1b,eu-west-1c
+# Use master_zones if you want your masters in different zones than worker nodes.
+# Useful especially when you want 1 master in single zone but workers in several zones.
+# When not defined, aws_zones will be sued instead
+master_zones: eu-west-1a
+
+# Network
+dns_zone: mmnix.pp.ua
+network_cidr: 172.16.0.0/16
+kubernetes_networking: weave
+topology: public
+
+# EC2 host sizing
+master_size: t2.micro
+master_count: 1
+master_volume_size: 50
+node_size: t2.medium
+node_count: 1
+node_volume_size: 50
+node_autoscaler_min: 1
+node_autoscaler_max: 6
+
+tag_creator: Oleksii
+tag_owner: Oleksii
+tag_application: MM
+tag_costcenter: 1234
+tag_product: MM
+tag_confidentiality: StrictlyConfidential
+tag_environment: Development

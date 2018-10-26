@@ -1,0 +1,12 @@
+- hosts: '*'
+  roles:
+    - role: geerlingguy.java
+      become: yes
+    - role: geerlingguy.jenkins
+      become: yes
+    - role: githubixx.kubectl
+      become: yes
+    - role: nickjj.docker
+      become: yes
+    - role: andrewrothstein.kubernetes-helm
+      become: yes
