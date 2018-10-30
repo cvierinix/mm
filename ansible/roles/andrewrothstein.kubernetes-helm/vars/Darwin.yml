@@ -1,3 +1,0 @@
----
-kubernetes_helm_privilege_escalate: False
-kubernetes_helm_installer: brew

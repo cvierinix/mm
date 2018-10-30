@@ -16,8 +16,9 @@ for item in buckets:
     operation_parameters = {'Bucket': bucket}
     page_iterator = paginator.paginate(**operation_parameters)
     for page in page_iterator:
-        for item in page['Contents']:
-            if item['Key'][-1:] != '/':
-                total += 1
-                size = size + item['Size']
+        if 'Contents' in page:
+            for item in page['Contents']:
+                if item['Key'][-1:] != '/':
+                    total += 1
+                    size = size + item['Size']
     print("Bucket: %s, Created: %s, Files: %s, Size: %s" % (bucket, date, total, size))
